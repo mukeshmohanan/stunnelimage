@@ -114,22 +114,30 @@ WORKDIR ${INSTALLDIR_OPENSSL}/bin
 
 # generate server CSR using pre-set CA.key and cert
 # and generate server cert
-RUN set -x && mkdir -p /opt/test; \
-    openssl version && openssl list -providers && openssl req -new -newkey ${SIG_ALG} -keyout /opt/test/server.key -out /opt/test/server.csr -nodes -subj "/CN=localhost" && \
-    openssl x509 -req -in /opt/test/server.csr -out /opt/test/server.crt -CA CA.crt -CAkey CA.key -CAcreateserial -days 365;
+#RUN set -x && mkdir -p /opt/test; \
+#    openssl version && openssl list -providers && openssl req -new -newkey ${SIG_ALG} -keyout /opt/test/server.key -out /opt/test/server.csr -nodes -subj "/CN=localhost" && \
+#    openssl x509 -req -in /opt/test/server.csr -out /opt/test/server.crt -CA CA.crt -CAkey CA.key -CAcreateserial -days 365;
 
-COPY serverstart.sh ${INSTALLDIR_OPENSSL}/bin
+#COPY serverstart.sh ${INSTALLDIR_OPENSSL}/bin
 
 WORKDIR ${INSTALLDIR_OPENSSL}
 
 FROM dev
 ARG INSTALLDIR_OPENSSL
 
+ARG STUNNEL_DIR_CERTS=/opt/stunnel/certs
+ARG STUNNEL_DIR_BIN=/opt/stunnel/bin
+ARG STUNNEL_DIR_CONFIG=/opt/stunnel/config
+
+RUN mkdir -p ${STUNNEL_DIR_CERTS}
+RUN mkdir -p ${STUNNEL_DIR_CERTS}
+RUN mkdir -p ${STUNNEL_DIR_CONFIG}
+
 WORKDIR /
-
+COPY stunnel.conf ${STUNNEL_DIR_CONFIG}
+COPY stunnelstart.sh ${STUNNEL_DIR_BIN}
 # Enable a normal user to create new server keys off set CA
-RUN addgroup -g 1000 -S oqs && adduser --uid 1000 -S oqs -G oqs && chown -R oqs.oqs /opt/test && chmod go+r ${INSTALLDIR_OPENSSL}/bin/CA.key 
+#RUN addgroup -g 1000 -S oqs && adduser --uid 1000 -S oqs -G oqs && chown -R oqs.oqs /opt/test && chmod go+r ${INSTALLDIR_OPENSSL}/bin/CA.key 
 
-#USER oqs
-CMD ["serverstart.sh"]
-STOPSIGNAL SIGTERM
+# entry point  # /opt/stunnel/bin/stunnelstart.sh"
+ENTRYPOINT ["sleep", "infinity"]
