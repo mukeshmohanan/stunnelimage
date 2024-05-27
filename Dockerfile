@@ -18,6 +18,7 @@ RUN mkdir -p ${STUNNEL_DIR_CONFIG}
 
 # copy the files 
 COPY stunnel ${STUNNEL_DIR_BIN}
+COPY openssl.cnf ${STUNNEL_DIR_CONFIG}
 COPY stunnel.conf ${STUNNEL_DIR_CONFIG}
 COPY stunnelstart.sh ${STUNNEL_DIR_BIN}
 COPY libcrypto.so ${STUNNEL_DIR_LIB}/
