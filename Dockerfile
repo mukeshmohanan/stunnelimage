@@ -1,4 +1,4 @@
-FROM ubi8/ubi as dev
+FROM ubi9/ubi as dev
 # Take in all global args
 ARG INSTALLDIR_OPENSSL
 ARG SIG_ALG
