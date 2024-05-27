@@ -9,6 +9,9 @@ ARG STUNNEL_DIR_LIB=/opt/stunnel/lib
 
 WORKDIR /
 
+RUN yum update -y && \
+    yum install -y \
+    glibc 
 RUN mkdir -p ${STUNNEL_DIR_CERTS}
 RUN mkdir -p ${STUNNEL_DIR_BIN}
 RUN mkdir -p ${STUNNEL_DIR_CONFIG}
