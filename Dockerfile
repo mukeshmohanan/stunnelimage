@@ -13,10 +13,12 @@ RUN mkdir -p ${STUNNEL_DIR_BIN}
 RUN mkdir -p ${STUNNEL_DIR_CONFIG}
 
 # copy the files 
+copy stunnel ${STUNNEL_DIR_BIN}
 COPY stunnel.conf ${STUNNEL_DIR_CONFIG}
 COPY stunnelstart.sh ${STUNNEL_DIR_BIN}
 RUN chmod 755 ${STUNNEL_DIR_CONFIG}
 RUN chmod 640 ${STUNNEL_DIR_CONFIG}/stunnel.conf
+RUN chmod 640 ${STUNNEL_DIR_BIN}/stunnel
 RUN chmod -R 750 ${STUNNEL_DIR_BIN}/stunnelstart.sh
 
 # Enable a normal user to create new server keys off set CA
