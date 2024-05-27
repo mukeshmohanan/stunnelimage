@@ -14,7 +14,6 @@ RUN mkdir -p ${STUNNEL_DIR_CONFIG}
 
 
 COPY stunnel.conf ${STUNNEL_DIR_CONFIG}
-chmod 700 
 COPY stunnelstart.sh ${STUNNEL_DIR_BIN}
 RUN chmod 700 ${STUNNEL_DIR_CONFIG}/stunnel.conf
 RUN chmod 700 ${STUNNEL_DIR_BIN}/stunnelstart.sh
