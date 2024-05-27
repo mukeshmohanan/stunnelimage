@@ -9,7 +9,7 @@ ARG STUNNEL_DIR_CONFIG=/opt/stunnel/config
 WORKDIR /
 
 RUN mkdir -p ${STUNNEL_DIR_CERTS}
-RUN mkdir -p ${STUNNEL_DIR_CERTS}
+RUN mkdir -p ${STUNNEL_DIR_BIN}
 RUN mkdir -p ${STUNNEL_DIR_CONFIG}
 
 
