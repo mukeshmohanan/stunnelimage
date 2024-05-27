@@ -13,7 +13,7 @@ RUN mkdir -p ${STUNNEL_DIR_BIN}
 RUN mkdir -p ${STUNNEL_DIR_CONFIG}
 
 # copy the files 
-copy stunnel ${STUNNEL_DIR_BIN}
+COPY stunnel ${STUNNEL_DIR_BIN}
 COPY stunnel.conf ${STUNNEL_DIR_CONFIG}
 COPY stunnelstart.sh ${STUNNEL_DIR_BIN}
 RUN chmod 755 ${STUNNEL_DIR_CONFIG}
