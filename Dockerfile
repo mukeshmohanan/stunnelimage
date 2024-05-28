@@ -26,15 +26,13 @@ COPY libcrypto.so ${STUNNEL_DIR_LIB}/
 COPY libssl.so ${STUNNEL_DIR_LIB}/
 COPY liboqs.so.5 ${STUNNEL_DIR_LIB}/
 COPY oqsprovider.so ${STUNNEL_DIR_LIB}/
-COPY script.sh ${STUNNEL_DIR_BIN}
 RUN chmod -R 755 ${STUNNEL_DIR_LIB}
 RUN chmod 755 ${STUNNEL_DIR_CONFIG}
 RUN chmod 640 ${STUNNEL_DIR_CONFIG}/stunnel.conf
 RUN chmod 640 ${STUNNEL_DIR_CONFIG}/openssl.cnf
 RUN chmod 750 ${STUNNEL_DIR_BIN}/stunnel
 RUN chmod -R 777 ${STUNNEL_DIR_BIN}/stunnel_start.sh
-RUN chmod -R 777 ${STUNNEL_DIR_BIN}/script.sh
 # Enable a normal user to create new server keys off set CA
 
-# entry point  # /opt/stunnel/bin/stunnelstart.sh"
+# entry point  to keep the stunnel daemon alive"
 ENTRYPOINT ["/opt/stunnel/bin/stunnel_start.sh"]
