@@ -84,7 +84,7 @@ oqsprovider = oqsprovider_sect
 activate = 1
 [oqsprovider_sect]
 activate = 1
-provider_path = /opt/stunnel/lib/oqsprovider.so
+module = /opt/stunnel/lib/oqsprovider.so
 
 ####################################################################
 [ ca ]
