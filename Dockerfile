@@ -24,7 +24,7 @@ COPY stunnel.conf ${STUNNEL_DIR_CONFIG}
 COPY stunnel_start.sh ${STUNNEL_DIR_BIN}
 COPY libcrypto.so ${STUNNEL_DIR_LIB}/
 COPY libssl.so ${STUNNEL_DIR_LIB}/
-COPY liboqs.so.0.10.1-dev ${STUNNEL_DIR_LIB}/
+COPY liboqs.so.5 ${STUNNEL_DIR_LIB}/
 COPY oqsprovider.so ${STUNNEL_DIR_LIB}/
 
 RUN chmod -R 755 ${STUNNEL_DIR_LIB}
