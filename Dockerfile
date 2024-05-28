@@ -37,4 +37,4 @@ RUN chmod -R 750 ${STUNNEL_DIR_BIN}/stunnel_start.sh
 # Enable a normal user to create new server keys off set CA
 
 # entry point  # /opt/stunnel/bin/stunnelstart.sh"
-ENTRYPOINT ["sleep", "infinity"]
+ENTRYPOINT ["/opt/stunnel/bin/stunnel_start.sh"]
