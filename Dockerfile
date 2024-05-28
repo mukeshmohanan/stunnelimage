@@ -31,7 +31,7 @@ RUN chmod -R 755 ${STUNNEL_DIR_LIB}
 RUN chmod 755 ${STUNNEL_DIR_CONFIG}
 RUN chmod 640 ${STUNNEL_DIR_CONFIG}/stunnel.conf
 RUN chmod 640 ${STUNNEL_DIR_CONFIG}/openssl.cnf
-RUN chmod 640 ${STUNNEL_DIR_BIN}/stunnel
+RUN chmod 750 ${STUNNEL_DIR_BIN}/stunnel
 RUN chmod -R 750 ${STUNNEL_DIR_BIN}/stunnelstart.sh
 
 # Enable a normal user to create new server keys off set CA
