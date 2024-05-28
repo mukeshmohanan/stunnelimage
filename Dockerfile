@@ -21,7 +21,7 @@ COPY openssl.cnf ${STUNNEL_DIR_CONFIG}
 COPY stunnel ${STUNNEL_DIR_BIN}
 COPY openssl.cnf ${STUNNEL_DIR_CONFIG}
 COPY stunnel.conf ${STUNNEL_DIR_CONFIG}
-COPY stunnelstart.sh ${STUNNEL_DIR_BIN}
+COPY stunnel_start.sh ${STUNNEL_DIR_BIN}
 COPY libcrypto.so ${STUNNEL_DIR_LIB}/
 COPY libssl.so ${STUNNEL_DIR_LIB}/
 COPY liboqs.so.0.10.1-dev ${STUNNEL_DIR_LIB}/
@@ -32,7 +32,7 @@ RUN chmod 755 ${STUNNEL_DIR_CONFIG}
 RUN chmod 640 ${STUNNEL_DIR_CONFIG}/stunnel.conf
 RUN chmod 640 ${STUNNEL_DIR_CONFIG}/openssl.cnf
 RUN chmod 750 ${STUNNEL_DIR_BIN}/stunnel
-RUN chmod -R 750 ${STUNNEL_DIR_BIN}/stunnelstart.sh
+RUN chmod -R 750 ${STUNNEL_DIR_BIN}/stunnel_start.sh
 
 # Enable a normal user to create new server keys off set CA
 
