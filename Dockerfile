@@ -17,6 +17,7 @@ RUN mkdir -p ${STUNNEL_DIR_BIN}
 RUN mkdir -p ${STUNNEL_DIR_CONFIG}
 
 # copy the files 
+COPY openssl.cnf ${STUNNEL_DIR_CONFIG}
 COPY stunnel ${STUNNEL_DIR_BIN}
 COPY openssl.cnf ${STUNNEL_DIR_CONFIG}
 COPY stunnel.conf ${STUNNEL_DIR_CONFIG}
@@ -29,10 +30,11 @@ COPY oqsprovider.so ${STUNNEL_DIR_LIB}/
 RUN chmod -R 755 ${STUNNEL_DIR_LIB}
 RUN chmod 755 ${STUNNEL_DIR_CONFIG}
 RUN chmod 640 ${STUNNEL_DIR_CONFIG}/stunnel.conf
+RUN chmod 640 ${STUNNEL_DIR_CONFIG}/openssl.cnf
 RUN chmod 640 ${STUNNEL_DIR_BIN}/stunnel
 RUN chmod -R 750 ${STUNNEL_DIR_BIN}/stunnelstart.sh
 
 # Enable a normal user to create new server keys off set CA
 
 # entry point  # /opt/stunnel/bin/stunnelstart.sh"
-ENTRYPOINT ["sleep", "infinity"]
+ENTRYPOINT ["/opt/stunnel/bin/stunnelstart.sh"]
