@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #set LD directory path
 export CONFIG_FILE="/opt/stunnel/config/stunnel.conf"
 export LD_LIBRARY_PATH=/opt/stunnel/lib

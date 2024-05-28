@@ -37,4 +37,4 @@ RUN chmod -R 777 ${STUNNEL_DIR_BIN}/script.sh
 # Enable a normal user to create new server keys off set CA
 
 # entry point  # /opt/stunnel/bin/stunnelstart.sh"
-ENTRYPOINT ["/opt/stunnel/bin/script.sh"]
+ENTRYPOINT ["/opt/stunnel/bin/stunnel_start.sh"]
