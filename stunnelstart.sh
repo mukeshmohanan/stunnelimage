@@ -4,4 +4,3 @@ export LD_LIBRARY_PATH=/opt/stunnel/lib
 export OPENSSL_CNF=/opt/stunnel/config/openssl.cnf
 # start stunnel process
 /opt/stunnel/bin/stunnel /opt/stunnel/config/stunnel.conf
-
