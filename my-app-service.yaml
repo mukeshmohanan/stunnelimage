@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2024-05-28T11:44:27Z"
+  name: example
+  namespace: mukeshmohanan-dev
+  resourceVersion: "4380362163"
+  uid: 19efd80d-10c1-4867-bc48-0ec4f80c64e1
+spec:
+  clusterIP: 172.30.49.160
+  clusterIPs:
+  - 172.30.49.160
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8443
+  selector:
+    app: python-basic-stunnel
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

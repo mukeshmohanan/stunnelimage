@@ -1,0 +1,35 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  creationTimestamp: "2024-05-27T21:05:46Z"
+  generation: 31
+  name: stunnel-buil
+  namespace: mukeshmohanan-dev
+  resourceVersion: "4380396081"
+  uid: 5b422bb6-599c-49de-ac90-be2077bd591a
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: stunnel:latest
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    contextDir: /
+    git:
+      uri: https://github.com/mukeshmohanan/stunnelimage.git
+    sourceSecret:
+      name: github-token
+    type: Git
+  strategy:
+    dockerStrategy:
+      env:
+      - name: EXAMPLE
+        value: stunnel
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+status:
+  lastVersion: 28

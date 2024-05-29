@@ -1,0 +1,29 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2024-05-28T13:57:19Z"
+  name: my-app
+  namespace: mukeshmohanan-dev
+  resourceVersion: "4380152055"
+  uid: e7b62533-c03e-461d-9c44-d021aeb6745e
+spec:
+  host: my-app-mukeshmohanan-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+  tls:
+    termination: passthrough
+  to:
+    kind: Service
+    name: example
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2024-05-28T13:57:19Z"
+      status: "True"
+      type: Admitted
+    host: my-app-mukeshmohanan-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+    routerCanonicalHostname: router-default.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+    routerName: default
+    wildcardPolicy: None
